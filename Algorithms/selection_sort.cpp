@@ -1,21 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main()
+void selection_sort(int a[], int n)
 {
-    int n;
-    cin >> n;
-    vector<int> a(n); // or int a[n];
-    for (int i = 0; i < n; i++)
-    {
-        cin >> a[i];
-    }
-
-    // selection sort
-
     for (int i = 0; i < n - 1; i++)
     {
         int min_index = i;
+
         for (int j = i + 1; j < n; j++)
         {
             if (a[j] < a[min_index])
@@ -23,10 +14,17 @@ int main()
                 min_index = j;
             }
         }
+
         swap(a[i], a[min_index]);
     }
+}
 
-    // print the sorted array
+int main()
+{
+    int a[] = {5, 4, 9, 2, 1};
+    int n = sizeof(a) / sizeof(a[0]);
+
+    selection_sort(a, n);
 
     for (int i = 0; i < n; i++)
     {
