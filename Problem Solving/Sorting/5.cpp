@@ -1,16 +1,16 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Sort an array by absolute value in ascending order.
+// Sort an Array of Strings according to length.
 
-void insertion_sort(vector<int> &a)
+void insertion_sort(vector<string> &a)
 {
     int n = a.size();
     for (int i = 1; i < n; i++)
     {
-        int key = a[i];
+        string key = a[i];
         int j = i - 1;
-        while (j >= 0 && abs(a[j]) > abs(key))
+        while (j >= 0 && a[j].length() > key.length())
         {
             a[j + 1] = a[j];
             j--;
@@ -23,7 +23,7 @@ int main()
 {
     int n;
     cin >> n;
-    vector<int> a(n);
+    vector<string> a(n);
     for (int i = 0; i < n; i++)
         cin >> a[i];
 
