@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// Find the kth smallest element from an array.
+
 void selection_sort(vector<int> &a)
 {
     int n = a.size();
