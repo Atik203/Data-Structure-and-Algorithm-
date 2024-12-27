@@ -23,6 +23,7 @@ int size(Node *head)
     }
     return count;
 }
+
 void print(Node *head)
 {
     while (head != NULL)
@@ -81,6 +82,66 @@ void insert_at_position(Node *&head, int value, int position)
     }
     new_node->next = temp->next;
     temp->next = new_node;
+}
+
+void search(Node *head, int key)
+{
+    int pos = 0;
+    while (head != NULL)
+    {
+        if (head->value == key)
+        {
+            cout << "Element found at position " << pos << endl;
+            return;
+        }
+        pos++;
+        head = head->next;
+    }
+    cout << "Element not found" << endl;
+}
+
+void insert_after_element(Node *&head, int key, int value)
+{
+    Node *temp = head;
+    while (temp != NULL)
+    {
+        if (temp->value == key)
+        {
+            Node *new_node = new Node(value);
+            new_node->next = temp->next;
+            temp->next = new_node;
+            return;
+        }
+        temp = temp->next;
+    }
+    cout << "Element not found" << endl;
+}
+
+void insert_before_element(Node *&head, int key, int value)
+{
+    if (head == NULL)
+    {
+        cout << "List is empty" << endl;
+        return;
+    }
+    if (head->value == key)
+    {
+        insert_at_head(head, value);
+        return;
+    }
+    Node *temp = head;
+    while (temp->next != NULL)
+    {
+        if (temp->next->value == key)
+        {
+            Node *new_node = new Node(value);
+            new_node->next = temp->next;
+            temp->next = new_node;
+            return;
+        }
+        temp = temp->next;
+    }
+    cout << "Element not found" << endl;
 }
 
 void delete_at_head(Node *&head)

@@ -180,6 +180,73 @@ void reverse(Node *&head)
     }
 }
 
+void search(Node *head, int key)
+{
+    int position = 0;
+    while (head != NULL)
+    {
+        if (head->value == key)
+        {
+            cout << "Element found at position " << position << endl;
+            return;
+        }
+        head = head->next;
+        position++;
+    }
+    cout << "Element not found" << endl;
+}
+
+void insert_after_element(Node *&head, int element, int value)
+{
+    Node *new_node = new Node(value);
+    Node *temp = head;
+    while (temp != NULL)
+    {
+        if (temp->value == element)
+        {
+            new_node->next = temp->next;
+            new_node->prev = temp;
+            if (temp->next != NULL)
+            {
+                temp->next->prev = new_node;
+            }
+            temp->next = new_node;
+            return;
+        }
+        temp = temp->next;
+    }
+    cout << "Element not found" << endl;
+}
+
+void insert_before_element(Node *&head, int element, int value)
+{
+    if (head == NULL)
+    {
+        cout << "List is empty" << endl;
+        return;
+    }
+    if (head->value == element)
+    {
+        insert_at_head(head, value);
+        return;
+    }
+    Node *new_node = new Node(value);
+    Node *temp = head;
+    while (temp->next != NULL)
+    {
+        if (temp->next->value == element)
+        {
+            new_node->next = temp->next;
+            new_node->prev = temp;
+            temp->next->prev = new_node;
+            temp->next = new_node;
+            return;
+        }
+        temp = temp->next;
+    }
+    cout << "Element not found" << endl;
+}
+
 int main()
 {
     Node *head = new Node(10);
