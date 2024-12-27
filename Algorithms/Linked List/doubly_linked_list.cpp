@@ -95,6 +95,37 @@ void insert_at_position(Node *&head, int value, int position)
     temp->next = new_node;
 }
 
+void delete_by_value(Node *&head, int value)
+{
+    if (head == NULL)
+    {
+        cout << "List is empty" << endl;
+        return;
+    }
+    if (head->value == value)
+    {
+        delete_at_head(head);
+        return;
+    }
+    Node *temp = head;
+    while (temp->next != NULL)
+    {
+        if (temp->next->value == value)
+        {
+            Node *to_delete = temp->next;
+            temp->next = temp->next->next;
+            if (temp->next != NULL)
+            {
+                temp->next->prev = temp;
+            }
+            delete to_delete;
+            return;
+        }
+        temp = temp->next;
+    }
+    cout << "Element not found" << endl;
+}
+
 void delete_at_head(Node *&head)
 {
     if (head == NULL)

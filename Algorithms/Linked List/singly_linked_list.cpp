@@ -205,6 +205,33 @@ void delete_at_position(Node *&head, int position)
     delete temp1;
 }
 
+void delete_by_value(Node *&head, int key)
+{
+    if (head == NULL)
+    {
+        cout << "List is empty" << endl;
+        return;
+    }
+    if (head->value == key)
+    {
+        delete_at_head(head);
+        return;
+    }
+    Node *temp = head;
+    while (temp->next != NULL)
+    {
+        if (temp->next->value == key)
+        {
+            Node *temp1 = temp->next;
+            temp->next = temp1->next;
+            delete temp1;
+            return;
+        }
+        temp = temp->next;
+    }
+    cout << "Element not found" << endl;
+}
+
 void reverse(Node *&head)
 {
     Node *prev = NULL;
