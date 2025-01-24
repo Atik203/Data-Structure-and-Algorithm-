@@ -13,6 +13,7 @@ public:
     }
 };
 
+// Function to calculate the size of the linked list
 int size(Node *head)
 {
     int count = 0;
@@ -24,6 +25,7 @@ int size(Node *head)
     return count;
 }
 
+// Function to print the linked list
 void print(Node *head)
 {
     while (head != NULL)
@@ -34,6 +36,7 @@ void print(Node *head)
     cout << endl;
 }
 
+// Function to insert a node at the head of the linked list
 void insert_at_head(Node *&head, int value)
 {
     Node *new_node = new Node(value);
@@ -41,6 +44,7 @@ void insert_at_head(Node *&head, int value)
     head = new_node;
 }
 
+// Function to insert a node at the tail of the linked list
 void insert_at_tail(Node *&head, int value)
 {
     Node *new_node = new Node(value);
@@ -57,6 +61,7 @@ void insert_at_tail(Node *&head, int value)
     temp->next = new_node;
 }
 
+// Function to insert a node at a specific position in the linked list
 void insert_at_position(Node *&head, int value, int position)
 {
     if (position < 0 || position > size(head))
@@ -84,6 +89,7 @@ void insert_at_position(Node *&head, int value, int position)
     temp->next = new_node;
 }
 
+// Function to search for a key in the linked list
 void search(Node *head, int key)
 {
     int pos = 0;
@@ -100,6 +106,7 @@ void search(Node *head, int key)
     cout << "Element not found" << endl;
 }
 
+// Function to insert a node after a specific element in the linked list
 void insert_after_element(Node *&head, int key, int value)
 {
     Node *temp = head;
@@ -117,6 +124,7 @@ void insert_after_element(Node *&head, int key, int value)
     cout << "Element not found" << endl;
 }
 
+// Function to insert a node before a specific element in the linked list
 void insert_before_element(Node *&head, int key, int value)
 {
     if (head == NULL)
@@ -144,6 +152,7 @@ void insert_before_element(Node *&head, int key, int value)
     cout << "Element not found" << endl;
 }
 
+// Function to delete the head node of the linked list
 void delete_at_head(Node *&head)
 {
     if (head == NULL)
@@ -156,6 +165,7 @@ void delete_at_head(Node *&head)
     delete temp;
 }
 
+// Function to delete the tail node of the linked list
 void delete_at_tail(Node *&head)
 {
     if (head == NULL)
@@ -178,6 +188,7 @@ void delete_at_tail(Node *&head)
     temp->next = NULL;
 }
 
+// Function to delete a node at a specific position in the linked list
 void delete_at_position(Node *&head, int position)
 {
     if (position < 0 || position >= size(head))
@@ -205,6 +216,7 @@ void delete_at_position(Node *&head, int position)
     delete temp1;
 }
 
+// Function to delete a node by value in the linked list
 void delete_by_value(Node *&head, int key)
 {
     if (head == NULL)
@@ -232,6 +244,7 @@ void delete_by_value(Node *&head, int key)
     cout << "Element not found" << endl;
 }
 
+// Function to reverse the linked list
 void reverse(Node *&head)
 {
     Node *prev = NULL;
@@ -251,12 +264,14 @@ int main()
 {
     Node *head = new Node(10);
     insert_at_tail(head, 20);
-
     insert_at_head(head, 5);
-
     insert_at_position(head, 15, 2);
-
     print(head);
-
+    delete_at_position(head, 2);
+    print(head);
+    delete_by_value(head, 20);
+    print(head);
+    reverse(head);
+    print(head);
     return 0;
 }
