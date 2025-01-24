@@ -30,6 +30,13 @@ void pop()
     }
 }
 
+bool isEmpty()
+{
+    if (top <= -1)
+        return true;
+    return false;
+}
+
 void display()
 {
     if (top >= 0)
