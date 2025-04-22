@@ -1,0 +1,1 @@
+{"name":"Local: fractional_knapsack","url":"e:\\C_and_CPP\\DSA\\Problem Solving\\Greedy\\fractional_knapsack.cpp","tests":[{"id":1745340387493,"input":"4\n4 20\n3 9\n2 12\n1 7\n5","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\C_and_CPP\\DSA\\Problem Solving\\Greedy\\fractional_knapsack.cpp","group":"local","local":true}
