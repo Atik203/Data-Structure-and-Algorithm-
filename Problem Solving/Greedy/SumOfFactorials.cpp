@@ -31,7 +31,7 @@ void solve(int case_number)
         return;
     }
 
-        sort(ans.begin(), ans.end());
+    sort(ans.begin(), ans.end());
 
     cout << "Case " << case_number << ": ";
     for (int i = 0; i < ans.size(); i++)
