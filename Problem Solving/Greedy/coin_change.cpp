@@ -14,6 +14,7 @@ int main()
 
     vector<pair<int, int>> used; // {coin, count}
     int remaining = N;
+    int count = 0;
     for (int coin : coins)
     {
         if (remaining == 0)
@@ -34,10 +35,11 @@ int main()
     {
         for (auto &p : used)
         {
-
+            count += p.second;
             cout << p.first << " cents --- " << p.second << endl;
         }
         cout << endl;
     }
+    cout << "Total " << count << " coins";
     return 0;
 }
