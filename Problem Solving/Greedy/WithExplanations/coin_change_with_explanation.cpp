@@ -1,4 +1,19 @@
-
+/*
+ * Logic Explanation:
+ * This is a greedy coin change algorithm that finds the minimum number of coins needed
+ * to make up a given amount using a set of available coin denominations.
+ *
+ * Algorithm:
+ * 1. Sort the coins in descending order
+ * 2. For each coin denomination, starting from the largest:
+ *    - Take as many coins of that denomination as possible without exceeding the target amount
+ *    - Reduce the remaining amount accordingly
+ * 3. If the remaining amount is zero, we've found a valid solution
+ *    Otherwise, no solution exists with the given denominations
+ *
+ * Time Complexity: O(d log d) where d is the number of coin denominations
+ * Space Complexity: O(d)
+ */
 #include <bits/stdc++.h>
 using namespace std;
 

@@ -1,4 +1,21 @@
-
+/*
+ * Logic Explanation:
+ * This algorithm solves a strategic matchmaking problem for a karate competition where:
+ * - When our player wins, we get 2 points
+ * - When tied, we get 1 point
+ * - When our player loses, we get 0 points
+ *
+ * Algorithm:
+ * 1. Sort both our team and opponent team in ascending order
+ * 2. Use two pointers for each team (start and end of array)
+ * 3. For each match, use a greedy strategy:
+ *    - If our strongest player beats their strongest, match them (2 points)
+ *    - Else if our weakest player beats their weakest, match them (2 points)
+ *    - Otherwise, match our weakest player with their strongest (0/1 point)
+ *
+ * Time Complexity: O(n log n) due to sorting
+ * Space Complexity: O(n) for storing the teams
+ */
 #include <bits/stdc++.h>
 using namespace std;
 

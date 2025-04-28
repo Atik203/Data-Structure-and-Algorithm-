@@ -1,4 +1,21 @@
-
+/*
+ * Logic Explanation:
+ * This algorithm solves a multi-knapsack problem where multiple thieves steal items
+ * from a warehouse, each with their own knapsack capacity. The goal is to determine
+ * how many thieves are needed to empty the warehouse.
+ *
+ * Algorithm:
+ * 1. Sort items by value-to-weight ratio (highest value per kg first)
+ * 2. For each thief:
+ *    - Fill their knapsack greedily with the most valuable remaining items
+ *    - Items are divisible, so partial items can be taken
+ *    - Keep track of items taken and remaining quantities
+ *    - Continue until the thief's knapsack is full or warehouse is empty
+ * 3. Count how many thieves were needed and report any remaining items
+ *
+ * Time Complexity: O(n log n) for sorting, plus O(n*k) for the thieves' selections
+ * Space Complexity: O(n) for storing items and their remaining quantities
+ */
 #include <bits/stdc++.h>
 using namespace std;
 

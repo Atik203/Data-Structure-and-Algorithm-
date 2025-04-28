@@ -1,4 +1,25 @@
-
+/*
+ * Logic Explanation:
+ * This algorithm solves a question/exam optimization problem in two scenarios:
+ * 1. A single person maximizing marks
+ * 2. Two people working together to maximize total marks
+ *
+ * Algorithm (single person):
+ * 1. Calculate marks-to-time ratio for each question
+ * 2. Sort questions by this ratio in descending order
+ * 3. Greedily select questions:
+ *    - Always work on the question with the highest marks-per-time ratio
+ *    - Can partially complete questions (fractional)
+ *    - Continue until time runs out
+ *
+ * Algorithm (with friend):
+ * 1. Use a priority queue to maintain questions sorted by marks-to-time ratio
+ * 2. Always assign the most efficient question to the person with more available time
+ * 3. If a question is partially completed, reinsert the remaining part into the queue
+ *
+ * Time Complexity: O(N log N) for sorting and priority queue operations
+ * Space Complexity: O(N)
+ */
 #include <bits/stdc++.h>
 using namespace std;
 

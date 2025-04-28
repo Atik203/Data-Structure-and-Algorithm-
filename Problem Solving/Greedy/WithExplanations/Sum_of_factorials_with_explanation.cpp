@@ -1,4 +1,20 @@
-
+/*
+ * Logic Explanation:
+ * This algorithm determines whether a given number can be represented as a sum of
+ * factorials (n!), and if possible, finds such a representation with minimal terms.
+ *
+ * Algorithm:
+ * 1. Pre-calculate factorials from 0! to 20! (20! is very large, near 10^18)
+ * 2. Use a greedy approach:
+ *    - Start from the largest factorial (20!) and work down
+ *    - If the current factorial fits into the remaining number, include it
+ *    - Subtract the factorial value from the remaining number
+ * 3. If the remaining number becomes zero, a solution was found
+ *    Otherwise, the number cannot be represented as a sum of factorials
+ *
+ * Time Complexity: O(1) as we process at most 21 factorials
+ * Space Complexity: O(1) for storing the factorials and answer
+ */
 #include <bits/stdc++.h>
 using namespace std;
 
