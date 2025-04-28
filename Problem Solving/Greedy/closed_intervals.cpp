@@ -1,3 +1,19 @@
+// filepath: e:\C_and_CPP\DSA\Problem Solving\Greedy\closed_intervals.cpp
+/*
+ * Logic Explanation:
+ * Given a set of points on a real line, this algorithm finds the minimum number of
+ * unit-length closed intervals needed to cover all points.
+ *
+ * Algorithm:
+ * 1. Sort all points in ascending order
+ * 2. Greedily place intervals starting from the leftmost uncovered point:
+ *    - For each uncovered point, create a unit-length interval starting at that point
+ *    - Skip all points that are covered by this interval
+ *    - Continue until all points are covered
+ *
+ * Time Complexity: O(n log n) due to sorting
+ * Space Complexity: O(n) for storing the points and intervals
+ */
 #include <bits/stdc++.h>
 using namespace std;
 

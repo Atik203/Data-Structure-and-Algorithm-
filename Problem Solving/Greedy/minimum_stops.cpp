@@ -1,3 +1,20 @@
+// filepath: e:\C_and_CPP\DSA\Problem Solving\Greedy\minimum_stops.cpp
+/*
+ * Logic Explanation:
+ * This is a greedy algorithm for finding the minimum number of gas stations
+ * needed to reach a destination with a vehicle that has a limited fuel tank.
+ *
+ * Algorithm:
+ * 1. Add starting point (0) and destination (D) to the list of stations
+ * 2. For each current position:
+ *    - Find the furthest reachable station within tank capacity
+ *    - If no progress can be made, the destination is unreachable
+ *    - Add the selected station to our stops list and move to it
+ *    - Continue until we reach the destination
+ *
+ * Time Complexity: O(n) where n is the number of gas stations
+ * Space Complexity: O(n) for storing the stations and stops
+ */
 #include <bits/stdc++.h>
 using namespace std;
 

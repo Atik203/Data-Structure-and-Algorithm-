@@ -1,3 +1,21 @@
+// filepath: e:\C_and_CPP\DSA\Problem Solving\Greedy\multipurpose_hall.cpp
+/*
+ * Logic Explanation:
+ * This algorithm solves an interval scheduling problem with gaps:
+ * maximize the number of club activities that can be scheduled in a hall,
+ * given that there must be a minimum gap between activities.
+ *
+ * Algorithm:
+ * 1. Sort all clubs by their end times in ascending order
+ * 2. Greedily select clubs:
+ *    - Always pick the club with the earliest end time first
+ *    - Only select subsequent clubs if they start after the
+ *      previous club's end time plus required gap
+ * 3. Sort the selected clubs by ID for output
+ *
+ * Time Complexity: O(n log n) due to sorting
+ * Space Complexity: O(n) for storing the clubs
+ */
 #include <bits/stdc++.h>
 using namespace std;
 struct Club
