@@ -4,7 +4,7 @@ using namespace std;
 struct comp
 {
 
-    bool compare(pair<int, pair<int, int>> const &a, pair<int, pair<int, int>> const &b)
+    bool operator()(pair<int, pair<int, int>> const &a, pair<int, pair<int, int>> const &b)
     {
 
         return a.first > b.first;
@@ -28,7 +28,7 @@ int main()
         }
     }
 
-    cout << "Enter the graph input (u,v,w) ";
+    cout << "Enter the graph input (u,v,w) " << endl;
     for (int i = 0; i < n_edge; i++)
     {
         cin >> u >> v >> w;
@@ -60,7 +60,7 @@ int main()
 
     cout << "Enter source: ";
     cin >> source;
-    parent[source] = 0;
+    parent[source] = -1;
     distance[source] = 0;
     visited[source] = 1;
 
@@ -68,7 +68,7 @@ int main()
     {
         if (graph[source][i] != 0)
         {
-            queue_edges.push(make_pair(graph[source][i], make_pair(source, i)));
+            queue_edges.push(make_pair(distance[source] + graph[source][i], make_pair(source, i)));
         }
     }
 
@@ -94,28 +94,41 @@ int main()
         }
     }
 
-    for (int i = 0; i <= n_vertex; i++)
+    cout << "Shortest distances from source " << source << ":" << endl;
+    for (int i = 1; i <= n_vertex; i++)
     {
-        if (parent[i] != -1)
-            cout << parent[i] << " " << i << endl;
+        if (distance[i] == INT_MAX)
+            cout << "Vertex " << i << ": No path" << endl;
+        else
+            cout << "Vertex " << i << ": " << distance[i] << endl;
     }
 
     cout << "Enter destination: ";
     int dest;
     cin >> dest;
-    vector<int> path;
-    while (dest != source)
-    {
-        path.push_back(dest);
-        dest = parent[dest];
-    }
-    path.push_back(dest);
 
+    if (distance[dest] == INT_MAX)
+    {
+        cout << "No path from " << source << " to " << dest << endl;
+        return 0;
+    }
+
+    vector<int> path;
+    int current = dest;
+    while (current != source)
+    {
+        path.push_back(current);
+        current = parent[current];
+    }
+    path.push_back(source);
+
+    cout << "Shortest path: ";
     for (int i = path.size() - 1; i > 0; i--)
     {
         cout << path[i] << " --> ";
     }
-    cout << path[0];
+    cout << path[0] << endl;
+    cout << "Total distance: " << distance[dest] << endl;
 
     return 0;
 }
